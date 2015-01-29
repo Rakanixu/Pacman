@@ -1,0 +1,49 @@
+<!doctype html>
+<html ng-app="pacman" ng-controller="PacmanController as pacmanController">
+	<head>
+		<title>Pacman</title>
+		<meta name="author" content="Pablo Aguirre">
+		<link rel="stylesheet" href="assets/css/pacman.css">
+		<!-- Required to get characters's positions -->
+		<script src="assets/lib/jquery-2.1.1.min.js"></script>
+
+		<!-- START Static templates -->
+		<script type="text/ng-template" id="pacman.html">
+			<div ng-style="pacmanTransition" class="pacman-wrapper">
+				<div ng-style="pacmanRotation" class="pacman-head">
+					<div class="pacman-eye"></div>
+					<div ng-class="{'pacman-mouth move': close, 'pacman-mouth': !close}"></div>
+				</div>
+			</div>
+		</script>
+
+		<script type="text/ng-template" id="phantom.html">
+			<div ng-style="phantomTransition[{{$index}}]" class="phantom-wrapper phantom0{{$index + 1}}">
+				<div class="phantom {{colour}}">
+					<div class="phantom-eyes">
+						<div class ="eye"></div>
+						<div class ="eye"></div>
+					</div>
+					<div class="phantom-footer"></div>
+				</div>
+			</div>
+		</script>
+		<!-- END Static templates -->
+	</head>
+	<body ng-controller="PhantomController as phantomController" ng-keydown="onKeyDown($event)">
+		<div map-view></div>
+ 		<div ng-include="'pacman.html'"></div>
+ 		<div ng-repeat="colour in ['red', 'green', 'blue', 'cyan']" ng-include="'phantom.html'"></div>
+		<script src="assets/lib/angular.min.js"></script>
+		<script src="assets/js/maps/maze01.js"></script>
+		<script src="assets/js/maps/maze02.js"></script>
+		<script src="app/components/app.modules.js"></script>
+		<script src="app/components/map/environmentService.js"></script>
+		<script src="app/components/map/collisionService.js"></script>
+		<script src="app/components/map/mapViewDirective.js"></script>
+		<script src="app/components/pacman/pacmanService.js"></script>
+		<script src="app/components/pacman/pacmanController.js"></script>
+		<script src="app/components/phantom/phantomService.js"></script>
+		<script src="app/components/phantom/phantomController.js"></script>
+	</body>
+</html>

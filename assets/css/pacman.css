@@ -1,0 +1,149 @@
+body {
+	background-color: #000;
+	overflow: hidden;
+	width: 800px;
+	height: 800px;
+	margin: 0;
+}
+
+.pacman-wrapper {
+	width: 50px;
+	height: 50px;
+	border-radius: 50px;
+	background-color: #F1DF08;
+	display: inline-block;
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	margin: 2px;
+}
+
+.pacman-head {
+	width: 50px;
+	height: 50px;
+	position: relative;
+	left: 0px;
+	top: 0px;
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+
+.pacman-eye {
+	position: relative;
+	top: 10px;
+	left: 35px;
+	width: 5px;
+	height: 5px;
+	background-color: #111;
+	border-radius: 5px;
+}
+
+.pacman-mouth {
+	width: 0;
+	height: 0;
+	border-top: 12px solid transparent;
+	border-right: 25px solid #000;
+	border-bottom: 12px solid transparent;
+	position: relative;
+	left: 25px;
+	top: 12px;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+}
+
+.pacman-mouth.move {
+	border-top: 12px solid transparent;
+	border-right: 1000px solid #000;
+	border-bottom: 0px solid transparent;
+	-webkit-transition: all 1s ease-in-out;
+	-moz-transition: all 1s ease-in-out;
+	-o-transition: all 1s ease-in-out;
+	transition: all 1s ease-in-out;
+}
+
+.phantom-wrapper {
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+	position: absolute;
+	left: 525px;
+	top: 475px;
+	margin: 2px;
+}
+
+.phantom {
+	background-color: red;
+	width: 45px;
+	height: 45px;
+	border-top-left-radius: 22px;
+	border-top-right-radius: 22px;
+}
+
+.phantom.green {
+	background-color: green;
+}
+
+.phantom.blue {
+	background-color: blue;
+}
+
+.phantom.cyan {
+	background-color: cyan;
+}
+
+.phantom-eyes {
+	width: 40px;
+	height: 15px;
+	position: relative;
+	top: 15px;
+	left: 10px;
+}
+
+.phantom-eyes .eye {
+	background-color: #dfdfdf;
+	height: 15px;
+	width: 15px;
+	display: inline-block;
+	border-radius: 15px;
+}
+
+.phantom-eyes .eye:after {
+	margin: 5px;
+	content: '*';
+}
+
+.phantom-footer {
+	background-color: #000;
+	position: absolute;
+	top: 40px;
+	left:10px;
+	width: 30px;
+	height:10px;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+.map {
+	border-spacing: 0px;
+	z-index: 99999;
+	position: absolute;
+}
+
+.map tr td {
+	height: 44px;
+	width: 45px;
+	/*Debug mode to represent cartesian map - useful checking mazeXX.js data */
+	/*border: 1px solid #fff;*/
+}
+
+.map tr td.dot:after {
+	content:'*';
+	color: #fff;
+	position: relative;
+	top: 0px;
+	left: 21px;
+}
