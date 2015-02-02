@@ -1,4 +1,4 @@
 # Pacman
 Pacman Game developed with Angular
 
-To play download zip, decompress and open index.html within a browser
+To play download zip, decompress and open index.html within a browser (Just beta tested on Chrome)
